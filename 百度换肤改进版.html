@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("images/1.jpg") no-repeat top center;
+
+        }
+        .box img{
+            width: 150px;
+        }
+    </style>
+</head>
+<body id="bodyID">
+<div class="box">
+    <img src="images/1.jpg" alt="" id="pic1">
+    <img src="images/2.jpg" alt="" id="pic2">
+    <img src="images/3.jpg" alt="" id="pic3">
+</div>
+<script type="text/javascript">
+    function changeBG(picId) {
+        var pic = document.getElementById(picId);
+        var src = pic.getAttribute("src");
+        var srcUrl = "url(" + src + ")";
+        pic.onclick = function () {
+            document.body.style.backgroundImage = srcUrl;
+        }
+    }
+    changeBG("pic1");
+    changeBG("pic2");
+    changeBG("pic3");
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .box{
+            width: 300px;
+        }
+        li{
+            line-height: 30px;
+            list-style: none;
+        }
+        li span{
+            margin: 5px;
+        }
+        .current{
+            background-color: #aaaaaa !important;
+        }
+
+        
+    </style>
+    <script>
+        window.onload = function () {
+            var lis = document.getElementsByTagName("li");
+            var lisLength = lis.length;
+            for (var i = 0; i < lisLength; i++) {
+
+                    if (i % 2 == 0){
+                        lis[i].style.backgroundColor = "#eee";
+                    }else {
+                        lis[i].style.backgroundColor = "#ddd";
+
+                    }
+                    lis[i].onmouseover = function () {
+                        this.className = "current";
+                    }
+                    lis[i].onmouseout = function () {
+                        this.className = "";
+                    }
+            }
+
+        }
+
+            /*
+            因为重复代码, 所以可以使用for循环来生成代码
+            lis[0].onmouseover = function () {
+                this.style.backgroundColor = "#aaa";
+            }
+            lis[1].onmouseover = function () {
+                this.style.backgroundColor = "#aaa";
+            }
+            lis[2].onmouseover = function () {
+                this.style.backgroundColor = "#aaa";
+            }
+            */
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+        <li><span>上证指数</span><span>3102点</span><span>8.10</span><span>-0.2%</span></li>
+    </ul>
+</div>
+</body>
+</html>

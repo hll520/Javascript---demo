@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        input{
+            width: 300px;
+            height: 40px;
+
+        }
+        label{
+            color: #cccccc;
+            position: absolute;
+            top: 25px;
+            left: 15px;
+            cursor: text;
+        }
+    </style>
+</head>
+<body>
+<div class="search">
+    <input type="text" id="txt" />
+    <label for="txt" id="keyword">七夕鲜花早定</label>
+</div>
+<script type="text/javascript">
+    var txt = document.getElementById("txt");
+    var keyword = document.getElementById("keyword");
+    // oninput是表单事件, 检测用户输入的内容 ie  6 7 8不支持
+    // ie 6 7 8 onpropertychange
+    txt.oninput = txt.onpropertychange = function () {
+        if (this.value == ""){
+            keyword.style.display = "block";
+
+        }else {
+            keyword.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

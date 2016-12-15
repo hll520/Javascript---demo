@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        #box{
+            height: 70px;
+            width: 360px;
+            padding-top: 360px;
+            background: url("images1/01big.jpg") no-repeat;
+            margin: 100px auto;
+            border: 1px solid #cccccc;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+            border-top: 1px solid #cccccc;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li id="li01" title="images1/01big.jpg"><img src="images1/01.jpg" alt=""></li>
+        <li id="li02" title="images1/02big.jpg"><img src="images1/02.jpg" alt=""></li>
+        <li id="li03" title="images1/03big.jpg"><img src="images1/03.jpg" alt=""></li>
+        <li id="li04" title="images1/04big.jpg"><img src="images1/04.jpg" alt=""></li>
+        <li id="li05" title="images1/05big.jpg"><img src="images1/05.jpg" alt=""></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    // 找对象 找到盒子box, 方便设置box的背景图片
+    // 通过系统内置的getElementById
+    var box = document.getElementById("box");
+
+    // 函数参数传入liId
+    // 传入liId是为了在js中获取li对象
+    function changeBG(liId) {
+        var li = document.getElementById(liId);
+        // 通过getAttribute方法获取title的值
+        var urlSrc = li.getAttribute("title");
+        li.onmouseover = function () {
+            box.style.backgroundImage = "url(" + urlSrc + ")";
+        }
+    }
+
+    changeBG("li01");
+    changeBG("li02");
+    changeBG("li03");
+    changeBG("li04");
+    changeBG("li05");
+
+</script>
+</body>
+</html>

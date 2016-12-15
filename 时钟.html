@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clock{
+            width: 600px;
+            height: 600px;
+            background: url("images3/clock.jpg") no-repeat;
+            margin: 50px auto;
+            position: relative;
+        }
+        .clock div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .h{
+            background: url("images3/hour.png") no-repeat center;
+        }
+        .m{
+            background: url("images3/minute.png") no-repeat center;
+        }
+        .s{
+            background: url("images3/second.png") no-repeat center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var hour = document.getElementById("hour");
+            var minute = document.getElementById("minute");
+            var second = document.getElementById("second");
+
+            // 谷歌和safiri 用webkit前缀  火狐 用Moz  IE 用Ms   opera 用 O
+            var h = 0, m = 0, s = 0, ms = 0;
+            setInterval(function () {
+
+                // 获得当前的秒数  分数  时数
+                var date = new Date();
+                ms = date.getMilliseconds();
+                s = date.getSeconds() + ms / 1000;
+                m = date.getMinutes() + s / 60;
+                h = date.getHours() % 12 + m / 60;
+
+                second.style.webkitTransform = "rotate("+ 6*s +"deg)";
+                minute.style.webkitTransform = "rotate("+ 6*m +"deg)";
+                hour.style.webkitTransform = "rotate("+ 30*h +"deg)";
+
+//                console.log(h +":"+ m + ":" + s);
+            }, 100)
+
+        }
+    </script>
+</head>
+<body>
+<div class="clock">
+    <div class="h" id="hour"></div>
+    <div class="m" id="minute"></div>
+    <div class="s" id="second"></div>
+</div>
+</body>
+</html>

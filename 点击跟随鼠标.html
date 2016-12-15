@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<img src="images6/rss.png" alt="" id="image" />
+</body>
+<script>
+    var image = document.getElementById("image");
+
+    // 鼠标点击在文档上
+    document.onclick = function (e) {
+        var event = e || window.event;
+
+        // 自己好好计算为什么要减去image宽度和高度的一半
+        targetX = event.clientX - image.offsetWidth / 2;
+        targetY = event.clientY - image.offsetHeight / 2;
+    }
+    var leaderX = 0, leaderY = 0;
+    var targetX = 0, targetY = 0;
+
+    setInterval(function () {
+        leaderX = leaderX + (targetX - leaderX) / 10;
+        leaderY = leaderY + (targetY - leaderY) / 10;
+        image.style.left = leaderX + "px";
+        image.style.top = leaderY + "px";
+    }, 10)
+</script>
+</html>

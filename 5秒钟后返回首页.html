@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href=""></a>
+<div id="demo"></div>
+<script>
+    var demo = document.getElementById("demo");
+    var count = 5;
+
+
+    goIndex();
+    function goIndex(){
+        // 要切记 当多组双引号引起混乱, 要适当的加入单引号
+        demo.innerHTML = "<a href='http://www.baidu.com'>本页面将在第"+count+"秒之后跳转到首页</a>";
+
+        count--;
+        if (count == -1){
+            //跳转 用location跳转 到指定连接
+            window.location.href = "http://www.baidu.com";
+        }else {
+            setTimeout("goIndex()", 1000);
+        }
+    }
+</script>
+</body>
+</html>
